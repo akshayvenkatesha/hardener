@@ -62,10 +62,14 @@ func main() {
 			// }
 			job := &models.Createjob{ID: id, Hostname: &hostName, Username: &userName, Password: &password}
 
-			cmd1 := exec.Command(fmt.Sprintf("ssh akshay@{s} \"bash -s\" < ubuntu16Harden.sh", hostName))
+			// cmd1 := exec.Command(fmt.Sprintf("ssh akshay@{s} \"bash -s\" < ubuntu16Harden.sh", hostName))
+			cmd := fmt.Sprintf("sshpass -p %s ssh -o StrictHostKeyChecking=no %s@%s \"bash -s\" < /home/akshay/hello.sh", password, userName, hostName)
+			fmt.Printf(cmd)
+			fmt.Println()
+			cmd1 := exec.Command("sh", "-c", cmd)
 			_, err1 := cmd1.CombinedOutput()
 			if err1 != nil {
-				log.Fatal(err)
+				fmt.Print(err)
 			}
 			return hardener.NewCreateCreated().WithPayload(job)
 		})
