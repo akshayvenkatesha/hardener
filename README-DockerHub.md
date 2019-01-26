@@ -2,10 +2,12 @@
 
 # Hardener
 
-This Image is used to  compliance scans on the target system.
+This Image is used for compliance scans on the target system.
 
 ## Usage
-[Create hardener container](#create-hardener-container)
+- [Create hardener container](#create-hardener-container)
+
+- [Create target container(optional)](#create-target-container(optional))
 
 ## Create hardener container
 Run below commands which will download and create a hardener container with the container name **hardener**.
@@ -13,7 +15,7 @@ Run below commands which will download and create a hardener container with the 
 docker run -it --privileged --name hardener akshayvenkatesha/hardener:version0 /main
 ```
 
-This will create hardener container and **REST Endpoint** with [Swagger][swagger] specification will be exposed for management operation.
+Hardener container will expose **REST Endpoint** with [Swagger][swagger] specification for management operation.
 
 ## Get hardener container's ip
 Open the terminal and run below command 
