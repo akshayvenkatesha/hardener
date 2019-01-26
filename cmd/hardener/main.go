@@ -3,10 +3,10 @@ package main
 import (
 	"flag"
 	"fmt"
-	"hardenerserver/gen/models"
-	"hardenerserver/gen/restapi"
-	"hardenerserver/gen/restapi/operations"
-	"hardenerserver/gen/restapi/operations/hardener"
+	"hardener/gen/models"
+	"hardener/gen/restapi"
+	"hardener/gen/restapi/operations"
+	"hardener/gen/restapi/operations/hardener"
 	"log"
 	"os/exec"
 

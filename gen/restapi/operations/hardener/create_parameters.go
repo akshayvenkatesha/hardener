@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/runtime/middleware"
 
-	"hardenerserver/gen/models"
+	"hardener/gen/models"
 )
 
 // NewCreateParams creates a new CreateParams object

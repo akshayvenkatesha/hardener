@@ -20,7 +20,7 @@ import (
 	flags "github.com/jessevdk/go-flags"
 	graceful "github.com/tylerb/graceful"
 
-	"hardenerserver/gen/restapi/operations"
+	"hardener/gen/restapi/operations"
 )
 
 const (

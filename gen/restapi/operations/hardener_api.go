@@ -19,7 +19,7 @@ import (
 	strfmt "github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 
-	"hardenerserver/gen/restapi/operations/hardener"
+	"hardener/gen/restapi/operations/hardener"
 )
 
 // NewHardenerAPI creates a new Hardener instance

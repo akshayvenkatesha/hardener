@@ -11,8 +11,8 @@ import (
 	middleware "github.com/go-openapi/runtime/middleware"
 	graceful "github.com/tylerb/graceful"
 
-	"hardenerserver/gen/restapi/operations"
-	"hardenerserver/gen/restapi/operations/hardener"
+	"hardener/gen/restapi/operations"
+	"hardener/gen/restapi/operations/hardener"
 )
 
 // This file is safe to edit. Once it exists it will not be overwritten
