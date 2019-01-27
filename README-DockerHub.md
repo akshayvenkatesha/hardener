@@ -62,6 +62,14 @@ Content-Type: application/json
 cache-control: no-cache
 Postman-Token: f96cbdd0-bfbb-4db0-8289-4c35b4f36b6f
 ```
+Sample Request
+```
+GET /25 HTTP/1.1
+Host: 172.17.0.3:8080
+Content-Type: application/json
+cache-control: no-cache
+Postman-Token: f96cbdd0-bfbb-4db0-8289-4c35b4f36b6f
+```
 Sample Response
 ```
 {
