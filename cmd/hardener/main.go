@@ -16,6 +16,7 @@ import (
 )
 
 var portFlag = flag.Int("port", 8080, "Port to run this service on")
+var idMap = make(map[string]string)
 
 func main() {
 	swaggerSpec, err := loads.Analyzed(restapi.SwaggerJSON, "")
@@ -38,7 +39,14 @@ func main() {
 			if id == "" {
 				id = "0"
 			}
-			job := &models.Getjob{ID: id, Hostname: "dummy", Progress: 0}
+			var hostname string
+			value, od := idMap[id]
+			if !od {
+				hostname = "error - id is wrong"
+			} else {
+				hostname = value
+			}
+			job := &models.Getjob{ID: id, Hostname: hostname, Progress: 0}
 			return hardener.NewGetIDOK().WithPayload(job)
 		})
 
@@ -57,19 +65,24 @@ func main() {
 				userName = "root"
 			}
 			password := swag.StringValue(params.Body.Password)
-			// if password == "" {
-			password = "password"
-			// }
+			if password == "" {
+				password = "password"
+			}
 			job := &models.Createjob{ID: id, Hostname: &hostName, Username: &userName, Password: &password}
 
 			// cmd1 := exec.Command(fmt.Sprintf("ssh akshay@{s} \"bash -s\" < ubuntu16Harden.sh", hostName))
-			cmd := fmt.Sprintf("sshpass -p %s ssh -o StrictHostKeyChecking=no %s@%s \"bash -s\" < /home/akshay/hello.sh", password, userName, hostName)
+			cmd := fmt.Sprintf("sshpass -p %s ssh -o StrictHostKeyChecking=no %s@%s \"bash -s\" < /home/akshay/ubuntu16mini.sh", password, userName, hostName)
 			fmt.Printf(cmd)
 			fmt.Println()
 			cmd1 := exec.Command("sh", "-c", cmd)
-			_, err1 := cmd1.CombinedOutput()
+			output, err1 := cmd1.CombinedOutput()
 			if err1 != nil {
-				fmt.Print(err)
+				fmt.Println(err1)
+				idMap[id] = err1.Error()
+			} else {
+				outputStr := string(output)
+				fmt.Println(outputStr)
+				idMap[id] = outputStr
 			}
 			return hardener.NewCreateCreated().WithPayload(job)
 		})
