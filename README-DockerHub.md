@@ -7,7 +7,7 @@ This Image is used for compliance scans on the target system.
 ## Usage
 - [Create hardener container](#create-hardener-container)
 
-- [Create target container(optional)](#create-target-container(optional))
+- [Create target container(optional)](#create-target-containeroptional)
 
 ## Create hardener container
 Run below commands which will download and create a hardener container with the container name **hardener**.
