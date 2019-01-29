@@ -41,6 +41,8 @@ definitions:
         format: int64
       completed:
         type: boolean
+      result:
+        $ref: '#/definitions/ruleresultarray'
   error:
     type: object
     required:
@@ -51,6 +53,18 @@ definitions:
         format: int64
       message:
         type: string
+  ruleresultarray:
+    type: array
+    items:
+      $ref: '#/definitions/ruleresult'
+  ruleresult:
+    type: object
+    properties:
+      rulename:
+        type: string
+      result:
+        type: string
+      
 paths:
   /:
     post:
