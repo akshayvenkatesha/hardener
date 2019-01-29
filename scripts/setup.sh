@@ -4,6 +4,12 @@ export PATH="/snap/bin:$PATH"
 # Update apt
 apt-get update -y
 
+# Install ifconfig related packages
+sudo apt install net-tools
+
+# Install SSH Pass
+sudo apt install sshpass
+
 # Install vim
 apt install vim -y
 

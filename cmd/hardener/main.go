@@ -46,7 +46,7 @@ func main() {
 			} else {
 				hostname = value
 			}
-			job := &models.Getjob{ID: id, Hostname: hostname, Progress: 0}
+			job := &models.Getjob{ID: id, Hostname: hostname, Progress: 100, Result: models.Ruleresultarray{}}
 			return hardener.NewGetIDOK().WithPayload(job)
 		})
 

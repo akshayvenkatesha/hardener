@@ -23,52 +23,24 @@ Open the terminal and run below command
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' hardener
 ```
 
-### Sample Postman's Requests 
+### Sample curl's Requests 
 #### Create a Scan
 ```
-POST  HTTP/1.1
-Host: <hardener container's ip>:8080
-Content-Type: application/json
-cache-control: no-cache
-Postman-Token: 58719135-f205-4cb7-93b2-bcda29cbad9c
-{
-    "hostname": "<Target host name or IP>",
-    "id": "<any random id ex - 25>",
-    "username":"<User name of the host>",
-    "password":"<Password of the host>"
-}------WebKitFormBoundary7MA4YWxkTrZu0gW--
+curl -d '{"hostname": "<Target host name or IP>","id": "<any random id ex - 25>","username":"<Password of the host>","password":"akshay"}' -H "Content-Type: application/json" -X POST http://<hardener container's ip>:8080
 ```
 Sample Request
 ```
-POST  HTTP/1.1
-Host: 172.17.0.3:8080
-Content-Type: application/json
-cache-control: no-cache
-Postman-Token: 58719135-f205-4cb7-93b2-bcda29cbad9c
-{
-    "hostname": "172.17.0.2",
-    "id": "25",
-    "username":"akshay",
-    "password":"akshay"
-}------WebKitFormBoundary7MA4YWxkTrZu0gW--
+curl -d '{"hostname": "172.17.0.2","id": "30","username":"akshay","password":"akshay"}' -H "Content-Type: application/json" -X POST http://172.17.0.2:8080
 ```
 
 #### Get Output of Scan
 
 ```
-GET /<Id which will be used in above command> HTTP/1.1
-Host: <hardener container's ip>:8080
-Content-Type: application/json
-cache-control: no-cache
-Postman-Token: f96cbdd0-bfbb-4db0-8289-4c35b4f36b6f
+curl -H "Content-Type: application/json" -X GET http://<hardener container's ip>:8080/<Id which will be used in above command>
 ```
 Sample Request
 ```
-GET /25 HTTP/1.1
-Host: 172.17.0.3:8080
-Content-Type: application/json
-cache-control: no-cache
-Postman-Token: f96cbdd0-bfbb-4db0-8289-4c35b4f36b6f
+curl -H "Content-Type: application/json" -X GET http://172.17.0.2:8080/30
 ```
 Sample Response
 ```
