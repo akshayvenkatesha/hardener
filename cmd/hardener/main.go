@@ -75,7 +75,7 @@ func main() {
 			job := &models.Createjob{ID: id, Hostname: &hostName, Username: &userName, Password: &password}
 
 			// cmd1 := exec.Command(fmt.Sprintf("ssh akshay@{s} \"bash -s\" < ubuntu16Harden.sh", hostName))
-			cmd := fmt.Sprintf("sshpass -p %s ssh -o StrictHostKeyChecking=no %s@%s \"bash -s\" < /home/akshay/ubuntu16mini.sh", password, userName, hostName)
+			cmd := fmt.Sprintf("sshpass -p %s ssh -o StrictHostKeyChecking=no %s@%s \"bash -s\" < /home/akshay/ubuntu16Harden.sh", password, userName, hostName)
 			fmt.Printf(cmd)
 			fmt.Println()
 			cmd1 := exec.Command("sh", "-c", cmd)

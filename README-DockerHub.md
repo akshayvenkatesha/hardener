@@ -12,7 +12,7 @@ This Image is used for compliance scans on the target system.
 ## Create hardener container
 Run below commands which will download and create a hardener container with the container name **hardener**.
 ```
-docker run -it --privileged --name hardener akshayvenkatesha/hardener:0.1 /main
+docker run -it --privileged --name hardener akshayvenkatesha/hardener:0.2 /main
 ```
 
 Hardener container will expose **REST Endpoint** with [Swagger][swagger] specification for management operation.
