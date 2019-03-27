@@ -1,0 +1,21 @@
+{
+  "summary": {
+    "title": "Threat Model",
+    "owner": "akshayvenkatesha"
+  },
+  "detail": {
+    "contributors": [
+      {
+        "name": "akshayvenkatesha"
+      }
+    ],
+    "diagrams": [
+      {
+        "title": "Threat Model",
+        "thumbnail": "./public/content/images/thumbnail.jpg",
+        "id": 0
+      }
+    ],
+    "reviewer": "akshayvenkatesha"
+  }
+}
